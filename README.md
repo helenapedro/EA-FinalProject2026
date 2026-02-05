@@ -18,6 +18,16 @@ This system manages the full lifecycle of software releases, from task assignmen
 
 The project consists of two primary microservices and a Dockerized infrastructure layer.
 
+### Diagrams
+
+The system architecture diagram shows how the React frontend, Spring Boot services, Kafka, MongoDB, and Ollama interact at a high level.
+
+![Release System - System Architecture](docs/diagrams/system-architecture.svg)
+
+The entity relationship diagram summarizes the core domain models and their embedded relationships in MongoDB.
+
+![Release System - Entity Relationship Diagram](docs/diagrams/entity-relationship.svg)
+
 ### 1. Release Service (Port 8080)
 *   **Responsibilities:** Core business logic, workflow management, task tracking, forum discussions, and AI chat.
 *   **Tech Stack:** Spring Boot, Spring Data MongoDB, Spring Kafka, Spring WebFlux (SSE).
