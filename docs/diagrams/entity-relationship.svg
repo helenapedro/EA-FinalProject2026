@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <style>
+    .title { font: 24px sans-serif; font-weight: 600; }
+    .box { fill: #f8f8f8; stroke: #333; stroke-width: 1.5; }
+    .header { font: 16px sans-serif; font-weight: 600; }
+    .text { font: 14px monospace; }
+    .line { stroke: #333; stroke-width: 1.5; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#333" />
+    </marker>
+  </defs>
+
+  <text x="600" y="40" text-anchor="middle" class="title">Release System - Entity Relationship Diagram</text>
+
+  <!-- Release -->
+  <rect x="60" y="90" width="260" height="130" class="box" />
+  <text x="80" y="120" class="header">Release</text>
+  <text x="80" y="145" class="text">id : String</text>
+  <text x="80" y="165" class="text">name : String</text>
+  <text x="80" y="185" class="text">description : String</text>
+  <text x="80" y="205" class="text">status : ReleaseStatus</text>
+
+  <!-- Task -->
+  <rect x="60" y="300" width="260" height="170" class="box" />
+  <text x="80" y="330" class="header">Task</text>
+  <text x="80" y="355" class="text">id : String</text>
+  <text x="80" y="375" class="text">title : String</text>
+  <text x="80" y="395" class="text">description : String</text>
+  <text x="80" y="415" class="text">status : TaskStatus</text>
+  <text x="80" y="435" class="text">assignedDeveloperId : String</text>
+  <text x="80" y="455" class="text">orderIndex : Integer</text>
+  <text x="80" y="475" class="text">startedAt : Instant</text>
+
+  <!-- Comment -->
+  <rect x="60" y="540" width="260" height="120" class="box" />
+  <text x="80" y="570" class="header">Comment</text>
+  <text x="80" y="595" class="text">id : String</text>
+  <text x="80" y="615" class="text">authorId : String</text>
+  <text x="80" y="635" class="text">content : String</text>
+  <text x="80" y="655" class="text">timestamp : Instant</text>
+
+  <!-- User -->
+  <rect x="420" y="90" width="260" height="130" class="box" />
+  <text x="440" y="120" class="header">User</text>
+  <text x="440" y="145" class="text">id : String</text>
+  <text x="440" y="165" class="text">username : String</text>
+  <text x="440" y="185" class="text">password : String</text>
+  <text x="440" y="205" class="text">role : Role</text>
+
+  <!-- ChatSession -->
+  <rect x="760" y="90" width="260" height="110" class="box" />
+  <text x="780" y="120" class="header">ChatSession</text>
+  <text x="780" y="145" class="text">id : String</text>
+  <text x="780" y="165" class="text">developerId : String</text>
+
+  <!-- ChatMessage -->
+  <rect x="760" y="260" width="260" height="120" class="box" />
+  <text x="780" y="290" class="header">ChatMessage</text>
+  <text x="780" y="315" class="text">role : String</text>
+  <text x="780" y="335" class="text">content : String</text>
+  <text x="780" y="355" class="text">timestamp : Instant</text>
+
+  <!-- NotificationLog -->
+  <rect x="760" y="460" width="260" height="150" class="box" />
+  <text x="780" y="490" class="header">NotificationLog</text>
+  <text x="780" y="515" class="text">id : String</text>
+  <text x="780" y="535" class="text">recipient : String</text>
+  <text x="780" y="555" class="text">subject : String</text>
+  <text x="780" y="575" class="text">body : String</text>
+  <text x="780" y="595" class="text">eventType : String</text>
+  <text x="780" y="615" class="text">timestamp : Instant</text>
+
+  <!-- Relationships -->
+  <line x1="190" y1="220" x2="190" y2="300" class="line" />
+  <text x="210" y="260" class="text">tasks (embedded)</text>
+
+  <line x1="190" y1="470" x2="190" y2="540" class="line" />
+  <text x="210" y="515" class="text">comments (embedded)</text>
+
+  <line x1="1020" y1="200" x2="1020" y2="260" class="line" />
+  <text x="1035" y="235" class="text">messages (embedded)</text>
+
+  <line x1="320" y1="600" x2="360" y2="600" class="line" />
+  <line x1="360" y1="600" x2="360" y2="560" class="line" />
+  <text x="370" y="585" class="text">replies (nested)</text>
+</svg>
